@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: headerLinks">
+    <meta charset="UTF-8">
+    <title>Publishig house list</title>
+</head>
+<body>
+<header th:replace="fragments :: navigator"></header>
+
+<main role="main">
+    <div class="container main_container">
+        <div class="row row_header">
+            <div class="col-md-1">Id</div>
+            <div class="col-md-9">Name</div>
+            <div class="col-md-1">Update</div>
+            <div class="col-md-1">Delete</div>
+        </div>
+
+        <div class="row row_data" th:each="publishingHouse : ${phList}">
+            <div class="col-md-1" th:text="${publishingHouse.id}"></div>
+            <div class="col-md-9" th:text="${publishingHouse.name}"></div>
+            <div class="col-md-1"><a th:href="@{'/ph/edit/' + ${publishingHouse.id}}" class="btn btn-outline-primary">Update</a></div>
+            <div class="col-md-1"><a th:href="@{'/ph/delete/' + ${publishingHouse.id}}" class="btn btn-outline-primary">Delete</a></div>
+        </div>
+
+
+        <div th:replace="fragments :: footer"></div>
+    </div>
+</main>
+
+
+<div th:replace="fragments :: footerScripts"></div>
+
+
+</body>
+</html>

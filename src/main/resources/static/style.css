@@ -104,3 +104,23 @@ body {
         margin-top: 7rem;
     }
 }
+
+.main_container {
+    margin-top: 30px;
+    padding: 15px;
+}
+
+.row_header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: solid grey 1px;
+    font-size: 1.1rem;
+    /*1.5rem;*/
+}
+
+.row_data {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid lightgrey 1px;
+
+}
