@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments :: headerLinks">
+<head>
     <meta charset="UTF-8">
     <title>Book add</title>
+    <div th:replace="fragments :: headerLinks" th:remove="tag"></div>
 </head>
 
 <body>
@@ -56,6 +57,22 @@
                                th:field="${book.numOfAllCopies}"
                                th:value="${book.numOfAllCopies}">
                     </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="phId">Publishing house</label>
+                    </div>
+                    <div class="col-md-6">
+                        <select id="phId" th:name="phId">
+                            <option th:each="publishingHouse : ${publishingHouses}" th:text="${publishingHouse.name}"
+                                    th:value="${publishingHouse.id}" th:selected="${publishingHouse.id == book.getPublishingHouse().getId()}">
+                            </option>
+
+                        </select>
+                    </div>
+
+
                 </div>
 
                 <div class="row">

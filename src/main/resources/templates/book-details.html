@@ -14,71 +14,48 @@
     <div class="container main_container">
 
         <div class="col-md-12">
-            <form th:action="@{/book/add}" method="post" th:object="${book}">
-                <input type="hidden" th:field="${book.id}" th:value="${book.id}">
 
-                <div class="row">
-                    <div class="col-md-2">
-                        <label for="title">Title</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" id="title" th:field="${book.title}" th:value="${book.title}">
-                    </div>
+
+            <div class="row row_data">
+                <div class="col-md-2">
+                    <label>Title</label>
                 </div>
+                <div class="col-md-6" th:text="${book.title}"></div>
+            </div>
 
-                <div class="row">
-                    <div class="col-md-2">
-                        <label for="yearWritten">Year written</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="number" class="form-control" id="yearWritten" step="1"
-                               th:field="${book.yearWritten}"
-                               th:value="${book.yearWritten}">
-                    </div>
+            <div class="row row_data">
+                <div class="col-md-2">
+                    <label>Year written</label>
                 </div>
+                <div class="col-md-6" th:text="${book.yearWritten}"></div>
+            </div>
 
-                <div class="row">
-                    <div class="col-md-2">
-                        <label for="numberOfPages">Number of pages</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="number" class="form-control" id="numberOfPages" step="1"
-                               th:field="${book.numOfPages}"
-                               th:value="${book.numOfPages}">
-                    </div>
+            <div class="row row_data">
+                <div class="col-md-2">
+                    <label>Number of pages</label>
                 </div>
+                <div class="col-md-6" th:text="${book.numOfPages}"></div>
+            </div>
 
-                <div class="row">
-                    <div class="col-md-2">
-                        <label for="numberOfCopies">Number of copies</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="number" class="form-control" id="numberOfCopies" step="1"
-                               th:field="${book.numOfAllCopies}"
-                               th:value="${book.numOfAllCopies}">
-                    </div>
+            <div class="row row_data">
+                <div class="col-md-2">
+                    <label>Number of copies</label>
                 </div>
+                <div class="col-md-6" th:text="${book.numOfAllCopies}"></div>
+            </div>
 
-                <div class="row">
-                    <div class="col-md-2">
-                        <label for="phId">Publishing house</label>
-                    </div>
-                    <div class="col-md-6">
-                        <select id="phId" th:name="phId">
-                            <option th:each="publishingHouse : ${publishingHouses}" th:text="${publishingHouse.name}"
-                                    th:value="${publishingHouse.id}" th:selected="${publishingHouse.id == book.getPublishingHouse().getId()}">
-                            </option>
-
-                        </select>
-                    </div>
-
+            <div class="row row_data">
+                <div class="col-md-2">
+                    <label>Publishing house</label>
+                </div>
+                <div class="col-md-6" th:text="${book.publishingHouse.name}">
 
                 </div>
 
-                <div class="row">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
+
+            </div>
+
+
         </div>
 
 

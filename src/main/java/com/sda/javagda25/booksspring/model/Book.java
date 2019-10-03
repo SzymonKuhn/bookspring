@@ -37,7 +37,7 @@ public class Book  {
     @Formula(value = "(year(now()) - year_written)")
     private int howOld;
 
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne (fetch = FetchType.EAGER)
     private PublishingHouse publishingHouse;
 
     public Book(String title, int yearWritten, int numOfPages, int numOfAllCopies) {

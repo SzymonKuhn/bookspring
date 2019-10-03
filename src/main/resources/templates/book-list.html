@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments :: headerLinks">
+<head>
     <meta charset="UTF-8">
     <title>Book list</title>
+    <div th:replace="fragments :: headerLinks" th:remove="tag"></div>
+
 </head>
 <body>
 <header th:replace="fragments :: navigator"></header>
@@ -11,23 +13,25 @@
     <div class="container main_container">
         <div class="row row_header">
             <div class="col-md-1">Id</div>
-            <div class="col-md-4">Title</div>
+            <div class="col-md-3">Title</div>
             <div class="col-md-1">Year</div>
             <div class="col-md-1">Pages</div>
             <div class="col-md-1">Copies</div>
             <div class="col-md-2">Published by</div>
             <div class="col-md-1">Update</div>
             <div class="col-md-1">Delete</div>
+            <div class="col-md-1">Details</div>
         </div>
         <div class="row row_data" th:each="book : ${books}">
             <div class="col-md-1" th:text="${book.id}"></div>
-            <div class="col-md-4" th:text="${book.title}"></div>
+            <div class="col-md-3" th:text="${book.title}"></div>
             <div class="col-md-1" th:text="${book.yearWritten}"></div>
             <div class="col-md-1" th:text="${book.numOfPages}"></div>
             <div class="col-md-1" th:text="${book.numOfAllCopies}"></div>
-            <div class="col-md-2" th:text="${book.numOfAllCopies}"></div>
+            <div class="col-md-2" th:text="${book.publishingHouse.getName()}"></div>
             <div class="col-md-1"><a th:href="@{'/book/edit/' + ${book.id}}" class="btn btn-outline-primary">Update</a></div>
             <div class="col-md-1"><a th:href="@{'/book/delete/' + ${book.id}}" class="btn btn-outline-primary">Delete</a></div>
+            <div class="col-md-1"><a th:href="@{'/book/details/' + ${book.id}}" class="btn btn-outline-primary">Details</a></div>
         </div>
 
 

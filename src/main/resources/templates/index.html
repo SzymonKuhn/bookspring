@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments :: headerLinks">
+<head>
     <meta charset="UTF-8">
     <title>Index page</title>
-
+    <div th:replace="fragments :: headerLinks" th:remove="tag"></div>
 </head>
 
 <body>
